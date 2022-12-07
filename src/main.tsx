@@ -1,18 +1,17 @@
+import { DHConnectProvider } from '@daohaus/connect';
+import { HausThemeProvider } from '@daohaus/ui';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import { HashRouter } from 'react-router-dom';
-import { HausThemeProvider } from '@daohaus/ui';
-import { HausConnectProvider } from '@daohaus/connect';
 import { Routes } from './Routes';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <HashRouter>
       <HausThemeProvider>
-        <HausConnectProvider>
+        <DHConnectProvider>
           <Routes />
-        </HausConnectProvider>
+        </DHConnectProvider>
       </HausThemeProvider>
     </HashRouter>
   </React.StrictMode>
