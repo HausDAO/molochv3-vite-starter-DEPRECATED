@@ -1,0 +1,223 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      { "type": "address", "name": "_moloch", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "_updateSecondsActive",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "batchNewMember",
+    "inputs": [
+      { "type": "address[]", "name": "_members", "internalType": "address[]" },
+      {
+        "type": "uint32[]",
+        "name": "_activityMultipliers",
+        "internalType": "uint32[]"
+      },
+      { "type": "uint32[]", "name": "_startDates", "internalType": "uint32[]" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "batchUpdateMember",
+    "inputs": [
+      { "type": "address[]", "name": "_members", "internalType": "address[]" },
+      {
+        "type": "uint32[]",
+        "name": "_activityMultipliers",
+        "internalType": "uint32[]"
+      }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "claim",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "count",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+    "name": "lastTrigger",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
+    "name": "lastUpdate",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "memberIdxs",
+    "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      { "type": "address", "name": "account", "internalType": "address" },
+      { "type": "uint32", "name": "secondsActive", "internalType": "uint32" },
+      {
+        "type": "uint32",
+        "name": "activityMultiplier",
+        "internalType": "uint32"
+      }
+    ],
+    "name": "members",
+    "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      { "type": "address", "name": "", "internalType": "contract IBAAL" }
+    ],
+    "name": "moloch",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
+    "name": "owner",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "renounceOwnership",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "setNewMember",
+    "inputs": [
+      { "type": "address", "name": "_member", "internalType": "address" },
+      {
+        "type": "uint32",
+        "name": "_activityMultiplier",
+        "internalType": "uint32"
+      },
+      { "type": "uint32", "name": "_startDate", "internalType": "uint32" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "transferOwnership",
+    "inputs": [
+      { "type": "address", "name": "newOwner", "internalType": "address" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "trigger",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "updateMember",
+    "inputs": [
+      { "type": "address", "name": "_member", "internalType": "address" },
+      {
+        "type": "uint32",
+        "name": "_activityMultiplier",
+        "internalType": "uint32"
+      }
+    ]
+  },
+  {
+    "type": "event",
+    "name": "Claim",
+    "inputs": [{ "type": "address", "name": "", "indexed": false }],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "OwnershipTransferred",
+    "inputs": [
+      { "type": "address", "name": "previousOwner", "indexed": true },
+      { "type": "address", "name": "newOwner", "indexed": true }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SetMember",
+    "inputs": [
+      {
+        "type": "tuple",
+        "name": "member",
+        "indexed": false,
+        "components": [
+          { "type": "address" },
+          { "type": "uint32" },
+          { "type": "uint32" }
+        ]
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Trigger",
+    "inputs": [{ "type": "uint32", "name": "", "indexed": false }],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Update",
+    "inputs": [{ "type": "uint32", "name": "", "indexed": false }],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "UpdateMember",
+    "inputs": [
+      {
+        "type": "tuple",
+        "name": "member",
+        "indexed": false,
+        "components": [
+          { "type": "address" },
+          { "type": "uint32" },
+          { "type": "uint32" }
+        ]
+      }
+    ],
+    "anonymous": false
+  }
+]

@@ -20,4 +20,27 @@ export const FIELD: Record<string, FieldLego> = {
     placeholder: 'http://',
     expectType: 'url',
   },
+  RECIPIENT: {
+    id: 'recipient',
+    type: 'input',
+    label: 'Recipient',
+    placeholder: '0x...',
+    expectType: 'ethAddress',
+  },
+  TO_WEI: {
+    id: 'shouldOverwrite',
+    type: 'toWeiInput',
+    label: 'Should Overwrite',
+  },
+  STARTDATE: {
+    id: 'startdate',
+    type: 'timePicker',
+    label: 'Start Date (Unix Epoch in seconds)',
+  },
+  ACTIVITYMODIFIER: {
+    id: 'activitymodifier',
+    type: 'input',
+    label: 'Activity Modifier',
+    placeholder: '(1: fulltime, .5: halftime, 0: notime)',
+  },
 };

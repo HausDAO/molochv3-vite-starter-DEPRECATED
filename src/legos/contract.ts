@@ -2,6 +2,8 @@ import { LOCAL_ABI } from '@daohaus/abis';
 import { ContractLego } from '@daohaus/utils';
 import { CONTRACT_KEYCHAINS } from '@daohaus/keychain-utils';
 
+import MEMBER_REGISTRY from '../abis/memberRegistry.json'
+
 export const CONTRACT: Record<string, ContractLego> = {
   POSTER: {
     type: 'static',
@@ -48,5 +50,14 @@ export const CONTRACT: Record<string, ContractLego> = {
     contractName: 'LOOT_ERC20',
     abi: LOCAL_ABI.LOOT,
     targetAddress: '.dao.sharesAddress',
+  },
+  MEMBER_REGISTRY: {
+    type: 'static',
+    contractName: 'MEMBER_REGISTRY',
+    // @ts-ignore
+    abi: MEMBER_REGISTRY,
+    targetAddress: {
+      '0x64': '0x3962dc25390BC602B7376AD1a39b3Cbc76D6581F',
+    },
   },
 };

@@ -4,18 +4,18 @@ import { TXBuilder } from '@daohaus/tx-builder';
 
 import { FORM } from '../legos/forms';
 
-export const FormTest = () => {
+export const NewMember = () => {
   const { provider } = useDHConnect();
 
   return (
     <TXBuilder
       provider={provider}
-      chainId="0x5"
-      daoId="0xc035dd7cda32ae73f0f306ed56658527aad47648"
-      safeId="0x36824793440d1ab326b9b5634418393d5f5e30a3"
+      chainId="0x64"
+      daoId="0x8dcc8cdbfb97200bd08e05f580c236b3ac655fd8"
+      safeId="0xe014057ebe435dbcf0139a9a05b7ee0a05b74ec8"
       appState={{}}
     >
-      <FormBuilder form={FORM.SIGNAL} targetNetwork="0x5" />
+      <FormBuilder form={FORM.NEWMEMBER} targetNetwork="0x64" />
     </TXBuilder>
   );
 };
