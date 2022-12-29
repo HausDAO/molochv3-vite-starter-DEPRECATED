@@ -1,6 +1,10 @@
-import { POSTER_TAGS } from '@daohaus/utils';
+
+import { POSTER_TAGS, ValidArgType, NestedArray, TXLegoBase } from '@daohaus/utils';
+
 import { buildMultiCallTX } from '@daohaus/tx-builder';
-import { CONTRACT } from './contract';
+import { CONTRACT, CUSTOM_CONTRACT_KEYCHAINS } from './contract';
+
+import { ethers } from "ethers";
 
 export enum ProposalTypeIds {
   Signal = 'SIGNAL',
@@ -48,4 +52,25 @@ export const TX = {
       },
     ],
   }),
+  ONBOARDER: {
+    id: 'ONBOARDER',
+    contract: CONTRACT.SIMPLE_ONBOARDER,
+    method: 'onboarder',
+    args: [
+      '.formValues.tokens',
+    ],
+  },
+};
+
+export const ACTION_TX: Record<string, TXLegoBase> = {
+  APPROVE: {
+    id: 'APPROVE',
+    contract: CONTRACT.WEENUS,
+    method: 'approve',
+    staticArgs: [
+      '0x67615d81b510BC0430eba49cBd8BF9fd5bB5C58b',
+      ethers.constants.MaxUint256,
+    ]
+  },
+
 };

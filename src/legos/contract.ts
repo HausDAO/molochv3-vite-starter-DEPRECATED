@@ -1,6 +1,18 @@
 import { LOCAL_ABI } from '@daohaus/abis';
-import { ContractLego } from '@daohaus/utils';
-import { CONTRACT_KEYCHAINS } from '@daohaus/keychain-utils';
+import { ContractLego,  } from '@daohaus/utils';
+import { CONTRACT_KEYCHAINS, Keychain } from '@daohaus/keychain-utils';
+
+import SIMPLE_ONBOARDER from '../abis/onboarderShaman.json'
+import WEENUS from '../abis/weenus.json'
+
+export const CUSTOM_CONTRACT_KEYCHAINS: Record<string, Keychain> = {
+  SIMPLE_ONBOARDER: {
+    '0x64': '0x67615d81b510BC0430eba49cBd8BF9fd5bB5C58b',
+  },
+  WEENUS: {
+    '0x64': '0xE6421E9aF92aca6a81C9fD0BAbacE4a9c5691c60',
+  },
+}
 
 export const CONTRACT: Record<string, ContractLego> = {
   POSTER: {
@@ -48,5 +60,17 @@ export const CONTRACT: Record<string, ContractLego> = {
     contractName: 'LOOT_ERC20',
     abi: LOCAL_ABI.LOOT,
     targetAddress: '.dao.sharesAddress',
+  },
+  SIMPLE_ONBOARDER: {
+    type: 'static',
+    contractName: 'SIMPLE_ONBOARDER',
+    abi: SIMPLE_ONBOARDER,
+    targetAddress: CUSTOM_CONTRACT_KEYCHAINS.SIMPLE_ONBOARDER,
+  },
+  WEENUS: {
+    type: 'static',
+    contractName: 'WEENUS',
+    abi: WEENUS,
+    targetAddress: CUSTOM_CONTRACT_KEYCHAINS.WEENUS,
   },
 };

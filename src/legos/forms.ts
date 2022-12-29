@@ -1,4 +1,4 @@
-import { FormLego } from '@daohaus/form-builder';
+import { FormLego, ToWeiInput } from '@daohaus/form-builder';
 import { FIELD } from './fields';
 import { TX } from './tx';
 
@@ -16,6 +16,19 @@ export const FORM: Record<string, FormLego> = {
       FIELD.DESCRIPTION,
       FIELD.LINK,
       // ...PROPOSAL_SETTINGS_FIELDS,
+    ],
+  },
+  ONBOARDER: {
+    id: 'ONBOARDER',
+    title: 'Stake Token',
+    subtitle: '1 to 1 tokens for shares',
+    description: 'Stake',
+    requiredFields: { tokens: true},
+    log: true,
+    // @ts-ignore
+    tx: TX.ONBOARDER, 
+    fields: [
+      {type: "toWeiInput", id:"tokens", label:"tokens", expectType:"number"}
     ],
   },
 };
