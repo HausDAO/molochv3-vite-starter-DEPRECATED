@@ -1,5 +1,5 @@
 
-import { POSTER_TAGS, ValidArgType, NestedArray, TXLegoBase } from '@daohaus/utils';
+import { POSTER_TAGS, ValidArgType, NestedArray, TXLegoBase, TXLego } from '@daohaus/utils';
 
 import { buildMultiCallTX } from '@daohaus/tx-builder';
 import { CONTRACT, CUSTOM_CONTRACT_KEYCHAINS } from './contract';
@@ -19,7 +19,7 @@ export enum ProposalTypeIds {
   WalletConnect = 'WALLETCONNECT',
 }
 
-export const TX = {
+export const TX:Record<string,TXLego> = {
   POST_SIGNAL: buildMultiCallTX({
     id: 'POST_SIGNAL',
     JSONDetails: {

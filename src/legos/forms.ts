@@ -25,7 +25,6 @@ export const FORM: Record<string, FormLego> = {
     description: 'Stake',
     requiredFields: { tokens: true},
     log: true,
-    // @ts-ignore
     tx: TX.ONBOARDER, 
     fields: [
       {type: "toWeiInput", id:"tokens", label:"tokens", expectType:"number"}
