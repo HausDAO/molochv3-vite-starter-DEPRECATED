@@ -24,6 +24,11 @@ const nestInArray = (arg: ValidArgType | ValidArgType[]): NestedArray => {
   };
 };
 
+// const defaultInArray = (arg: ValidArgType | ValidArgType[] ): NestedArray => {
+//   const arr = Array.isArray(arg) ? arg : [arg]
+//   return arr.map(()=>  {return "1000000000000000000"});
+// };
+
 export const TX = {
   POST_SIGNAL: buildMultiCallTX({
     id: 'POST_SIGNAL',
@@ -73,7 +78,10 @@ export const TX = {
       {
         contract: CONTRACT.CURRENT_DAO,
         method: 'mintShares',
-        args: ['.formValues.members', '.formValues.activitymods']
+        args: [
+          '.formValues.members', 
+          '.formValues.shares',
+        ]
       },
       {
         contract: CONTRACT.MEMBER_REGISTRY,

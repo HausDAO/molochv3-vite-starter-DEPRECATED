@@ -80,7 +80,7 @@ export const Trigger = (
       {isLoading ? (
         <Spinner size="2rem" strokeWidth=".2rem" />
       ) : (
-        "Trigger Distro"
+        "Trigger Split"
       )}
     </GatedButton>
   );

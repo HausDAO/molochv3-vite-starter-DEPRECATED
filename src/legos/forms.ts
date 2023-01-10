@@ -37,9 +37,7 @@ export const FORM: Record<string, CustomFormLego> = {
       {... FIELD.CSTEXTAREA, id:'members', label: 'Members'},
       {... FIELD.CSTEXTAREA, id:'activitymods', label: 'Activity Modifier'},
       {... FIELD.CSTEXTAREA, id:'startdates', label: 'Start Dates'},
-      // FIELD.STARTDATE,
-      // FIELD.ACTIVITYMODIFIER,
-      // ...PROPOSAL_SETTINGS_FIELDS,
+      FIELD.MEMBERLISTENER,
     ],
   },
   EDITMEMBER: {

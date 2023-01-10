@@ -3,8 +3,9 @@ import { FieldLegoBase } from '@daohaus/utils';
 import { MainLayout } from '@daohaus/ui';
 import { CSTextarea } from '../components/CSTextarea';
 import { Item } from '@daohaus/ui/components/molecules/Dropdown/Dropdown.styles';
+import { OneShareArrayField } from '../components/OneShareArrayField';
 
-export const customFields = {...CoreFieldLookup, cstextarea: CSTextarea};
+export const customFields = {...CoreFieldLookup, cstextarea: CSTextarea, memberlistener: OneShareArrayField};
 export type CustomFieldLego = FieldLegoBase<typeof customFields>;
 
 export const FIELD: Record<string, CustomFieldLego> = {
@@ -36,6 +37,10 @@ export const FIELD: Record<string, CustomFieldLego> = {
       singular: "item",
       plural: "items",
     }
+  },
+  MEMBERLISTENER: {
+    id: 'memberlistener',
+    type: 'memberlistener',
   },
   LINK: {
     id: 'link',
