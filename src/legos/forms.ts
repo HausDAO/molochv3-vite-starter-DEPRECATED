@@ -1,8 +1,12 @@
 import { FormLego } from '@daohaus/form-builder';
-import { FIELD } from './fields';
+import { customFields, FIELD } from './fields';
 import { TX } from './tx';
+import { FormLegoBase } from '@daohaus/utils';
 
-export const FORM: Record<string, FormLego> = {
+
+export type CustomFormLego = FormLegoBase<typeof customFields>;
+
+export const FORM: Record<string, CustomFormLego> = {
   SIGNAL: {
     id: 'SIGNAL',
     title: 'Signal Form',
@@ -20,37 +24,38 @@ export const FORM: Record<string, FormLego> = {
   },
   NEWMEMBER: {
     id: 'NEWMEMBER',
-    title: 'New Member Form',
-    subtitle: 'New Member Proposal',
-    description: 'Register a new member.',
-    requiredFields: { title: true, description: true, recipient: true, amount: true, startdate: true, activitymodifier: true },
+    title: 'New Member/s Form',
+    subtitle: 'Creates a proposal to register new member/s',
+    description: 'Enter the Member addresses, activity modifiers and startdates',
+    requiredFields: { title: true, description: true, members: true, activitymods: true, startdates: true },
     log: true,
     tx: TX.NEW_MEMBER,
     fields: [
       FIELD.TITLE,
       FIELD.DESCRIPTION,
       FIELD.LINK,
-      {... FIELD.RECIPIENT, label: 'Member'},
-      {...FIELD.TO_WEI, id:'amount', label: 'Amount'},
-      FIELD.STARTDATE,
-      FIELD.ACTIVITYMODIFIER,
+      {... FIELD.CSTEXTAREA, id:'members', label: 'Members'},
+      {... FIELD.CSTEXTAREA, id:'activitymods', label: 'Activity Modifier'},
+      {... FIELD.CSTEXTAREA, id:'startdates', label: 'Start Dates'},
+      // FIELD.STARTDATE,
+      // FIELD.ACTIVITYMODIFIER,
       // ...PROPOSAL_SETTINGS_FIELDS,
     ],
   },
   EDITMEMBER: {
     id: 'EDITMEMBER',
-    title: 'Edit Member Form',
-    subtitle: 'Edit Member Proposal',
-    description: 'Edit a current member.',
-    requiredFields: { title: true, description: true, recipient: true, activitymodifier: true },
+    title: 'Edit Member/s Form',
+    subtitle: 'Creates a proposal to edit member/s in the regisrty',
+    description: 'Enter the Member addresses and new activity modifiers',
+    requiredFields: { title: true, description: true, members: true, activitymods: true },
     log: true,
     tx: TX.EDIT_MEMBER,
     fields: [
       FIELD.TITLE,
       FIELD.DESCRIPTION,
       FIELD.LINK,
-      {... FIELD.RECIPIENT, label: 'Member'},
-      FIELD.ACTIVITYMODIFIER,
+      {... FIELD.CSTEXTAREA, id:'members', label: 'Members'},
+      {... FIELD.CSTEXTAREA, id:'activitymods', label: 'Activity Modifier'},
       // ...PROPOSAL_SETTINGS_FIELDS,
     ],
   },

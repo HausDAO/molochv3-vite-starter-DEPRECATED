@@ -10,12 +10,12 @@ export const EditMember = () => {
   return (
     <TXBuilder
       provider={provider}
-      chainId="0x64"
-      daoId="0x8dcc8cdbfb97200bd08e05f580c236b3ac655fd8"
-      safeId="0xe014057ebe435dbcf0139a9a05b7ee0a05b74ec8"
+      chainId="0x5"
+      daoId="0x7839755b77aadcd6a8cdb76248b3dddfa9b7f5f1"
+      safeId="0xaccd85e73639b5213a001630eb2512dbd6292e32"
       appState={{}}
     >
-      <FormBuilder form={FORM.EDITMEMBER} targetNetwork="0x64" />
+      <FormBuilder form={FORM.EDITMEMBER} targetNetwork="0x5" />
     </TXBuilder>
   );
 };

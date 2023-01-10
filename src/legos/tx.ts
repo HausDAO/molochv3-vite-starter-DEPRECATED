@@ -73,19 +73,15 @@ export const TX = {
       {
         contract: CONTRACT.CURRENT_DAO,
         method: 'mintShares',
-        args: [
-          nestInArray('.formValues.recipient'),
-          nestInArray('.formValues.amount'),
-          //{ type: 'static', value: POSTER_TAGS.signalProposal }, //hardcoded
-        ],
+        args: ['.formValues.members', '.formValues.activitymods']
       },
       {
         contract: CONTRACT.MEMBER_REGISTRY,
-        method: 'setNewMember',
+        method: 'batchNewMember',
         args: [
-          '.formValues.recipient',
-          '.formValues.activitymodifier',
-          '.formValues.startdate',
+          '.formValues.members',
+          '.formValues.activitymods',
+          '.formValues.startdates',
           //{ type: 'static', value: POSTER_TAGS.signalProposal }, //hardcoded
         ],
       },
@@ -106,10 +102,10 @@ export const TX = {
     actions: [
       {
         contract: CONTRACT.MEMBER_REGISTRY,
-        method: 'updateMember',
+        method: 'batchUpdateMember',
         args: [
-          '.formValues.recipient',
-          '.formValues.activitymodifier',
+          '.formValues.members',
+          '.formValues.activitymods',
           //{ type: 'static', value: POSTER_TAGS.signalProposal }, //hardcoded
         ],
       },
@@ -121,11 +117,16 @@ export const ACTION_TX: Record<string, TXLegoBase> = {
   UPDATE_SECONDS: {
     id: 'UPDATE_SECONDS',
     contract: CONTRACT.MEMBER_REGISTRY,
-    method: 'updateActiveSeconds',
+    method: 'updateSecondsActive',
   },
   TRIGGER: {
     id: 'TRIGGER',
     contract: CONTRACT.MEMBER_REGISTRY,
-    method: 'trigger',
+    method: 'triggerCalcAndSplits',
+  },
+  CLAIM: {
+    id: 'CLAIM',
+    contract: CONTRACT.MEMBER_REGISTRY,
+    method: 'claimShare',
   },
 };

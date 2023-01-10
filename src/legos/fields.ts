@@ -1,6 +1,13 @@
-import { FieldLego } from '@daohaus/form-builder';
+import { CoreFieldLookup, FieldLego } from '@daohaus/form-builder';
+import { FieldLegoBase } from '@daohaus/utils';
+import { MainLayout } from '@daohaus/ui';
+import { CSTextarea } from '../components/CSTextarea';
+import { Item } from '@daohaus/ui/components/molecules/Dropdown/Dropdown.styles';
 
-export const FIELD: Record<string, FieldLego> = {
+export const customFields = {...CoreFieldLookup, cstextarea: CSTextarea};
+export type CustomFieldLego = FieldLegoBase<typeof customFields>;
+
+export const FIELD: Record<string, CustomFieldLego> = {
   TITLE: {
     id: 'title',
     type: 'input',
@@ -12,6 +19,23 @@ export const FIELD: Record<string, FieldLego> = {
     type: 'textarea',
     label: 'Description',
     placeholder: 'Enter description',
+  },
+  ARRAY: {
+    id: 'array',
+    type: 'textarea',
+    label: 'array input',
+    placeholder: 'array items seperated by new lines',
+    rules: {setValueAs: (value: string) => {return value.split(/\r?\n/)}}
+  },
+  CSTEXTAREA: {
+    id: 'cstextarea',
+    type: 'cstextarea',
+    label: 'array input',
+    placeholder: 'array items seperated by new lines',
+    itemNoun: {
+      singular: "item",
+      plural: "items",
+    }
   },
   LINK: {
     id: 'link',

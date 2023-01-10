@@ -1,223 +1,349 @@
 [
   {
-    "type": "constructor",
     "inputs": [
-      { "type": "address", "name": "_moloch", "internalType": "address" }
-    ]
+      { "internalType": "address", "name": "_splitsMain", "type": "address" },
+      { "internalType": "address", "name": "_split", "type": "address" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "_updateSecondsActive",
-    "inputs": []
+    "inputs": [{ "internalType": "UD60x18", "name": "x", "type": "uint256" }],
+    "name": "PRBMathUD60x18__SqrtOverflow",
+    "type": "error"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "batchNewMember",
+    "anonymous": false,
     "inputs": [
-      { "type": "address[]", "name": "_members", "internalType": "address[]" },
       {
-        "type": "uint32[]",
-        "name": "_activityMultipliers",
-        "internalType": "uint32[]"
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
-      { "type": "uint32[]", "name": "_startDates", "internalType": "uint32[]" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "batchUpdateMember",
-    "inputs": [
-      { "type": "address[]", "name": "_members", "internalType": "address[]" },
       {
-        "type": "uint32[]",
-        "name": "_activityMultipliers",
-        "internalType": "uint32[]"
-      }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "claim",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
-    "name": "count",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
-    "name": "lastTrigger",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint32", "name": "", "internalType": "uint32" }],
-    "name": "lastUpdate",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
-    "name": "memberIdxs",
-    "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [
-      { "type": "address", "name": "account", "internalType": "address" },
-      { "type": "uint32", "name": "secondsActive", "internalType": "uint32" },
-      {
-        "type": "uint32",
-        "name": "activityMultiplier",
-        "internalType": "uint32"
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
       }
     ],
-    "name": "members",
-    "inputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }]
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [
-      { "type": "address", "name": "", "internalType": "contract IBAAL" }
-    ],
-    "name": "moloch",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "address", "name": "", "internalType": "address" }],
-    "name": "owner",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "renounceOwnership",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "setNewMember",
-    "inputs": [
-      { "type": "address", "name": "_member", "internalType": "address" },
-      {
-        "type": "uint32",
-        "name": "_activityMultiplier",
-        "internalType": "uint32"
-      },
-      { "type": "uint32", "name": "_startDate", "internalType": "uint32" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "transferOwnership",
-    "inputs": [
-      { "type": "address", "name": "newOwner", "internalType": "address" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "trigger",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "updateMember",
-    "inputs": [
-      { "type": "address", "name": "_member", "internalType": "address" },
-      {
-        "type": "uint32",
-        "name": "_activityMultiplier",
-        "internalType": "uint32"
-      }
-    ]
-  },
-  {
-    "type": "event",
-    "name": "Claim",
-    "inputs": [{ "type": "address", "name": "", "indexed": false }],
-    "anonymous": false
-  },
-  {
-    "type": "event",
     "name": "OwnershipTransferred",
-    "inputs": [
-      { "type": "address", "name": "previousOwner", "indexed": true },
-      { "type": "address", "name": "newOwner", "indexed": true }
-    ],
-    "anonymous": false
+    "type": "event"
   },
   {
-    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "account", "type": "address" },
+          {
+            "internalType": "uint32",
+            "name": "secondsActive",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "activityMultiplier",
+            "type": "uint32"
+          },
+          { "internalType": "uint32", "name": "startDate", "type": "uint32" }
+        ],
+        "indexed": false,
+        "internalType": "struct MemberRegistry.Member",
+        "name": "member",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "startDate",
+        "type": "uint32"
+      }
+    ],
     "name": "SetMember",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
     "inputs": [
       {
-        "type": "tuple",
-        "name": "member",
         "indexed": false,
-        "components": [
-          { "type": "address" },
-          { "type": "uint32" },
-          { "type": "uint32" }
-        ]
+        "internalType": "uint32",
+        "name": "date",
+        "type": "uint32"
       }
     ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
-    "name": "Trigger",
-    "inputs": [{ "type": "uint32", "name": "", "indexed": false }],
-    "anonymous": false
-  },
-  {
-    "type": "event",
     "name": "Update",
-    "inputs": [{ "type": "uint32", "name": "", "indexed": false }],
-    "anonymous": false
+    "type": "event"
   },
   {
-    "type": "event",
-    "name": "UpdateMember",
+    "anonymous": false,
     "inputs": [
       {
-        "type": "tuple",
-        "name": "member",
-        "indexed": false,
         "components": [
-          { "type": "address" },
-          { "type": "uint32" },
-          { "type": "uint32" }
-        ]
+          { "internalType": "address", "name": "account", "type": "address" },
+          {
+            "internalType": "uint32",
+            "name": "secondsActive",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "activityMultiplier",
+            "type": "uint32"
+          },
+          { "internalType": "uint32", "name": "startDate", "type": "uint32" }
+        ],
+        "indexed": false,
+        "internalType": "struct MemberRegistry.Member",
+        "name": "member",
+        "type": "tuple"
       }
     ],
-    "anonymous": false
+    "name": "UpdateMember",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "account", "type": "address" },
+          {
+            "internalType": "uint32",
+            "name": "secondsActive",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "activityMultiplier",
+            "type": "uint32"
+          },
+          { "internalType": "uint32", "name": "startDate", "type": "uint32" }
+        ],
+        "indexed": false,
+        "internalType": "struct MemberRegistry.Member",
+        "name": "member",
+        "type": "tuple"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint32",
+        "name": "newSeconds",
+        "type": "uint32"
+      }
+    ],
+    "name": "UpdateMemberSeconds",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "PERCENTAGE_SCALE",
+    "outputs": [{ "internalType": "uint32", "name": "", "type": "uint32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_split", "type": "address" }
+    ],
+    "name": "acceptControl",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address[]", "name": "_members", "type": "address[]" },
+      {
+        "internalType": "uint32[]",
+        "name": "_activityMultipliers",
+        "type": "uint32[]"
+      },
+      { "internalType": "uint32[]", "name": "_startDates", "type": "uint32[]" }
+    ],
+    "name": "batchNewMember",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address[]", "name": "_members", "type": "address[]" },
+      {
+        "internalType": "uint32[]",
+        "name": "_activityMultipliers",
+        "type": "uint32[]"
+      }
+    ],
+    "name": "batchUpdateMember",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_split", "type": "address" }
+    ],
+    "name": "cancelControlTransfer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "count",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getMembers",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "address", "name": "account", "type": "address" },
+          {
+            "internalType": "uint32",
+            "name": "secondsActive",
+            "type": "uint32"
+          },
+          {
+            "internalType": "uint32",
+            "name": "activityMultiplier",
+            "type": "uint32"
+          },
+          { "internalType": "uint32", "name": "startDate", "type": "uint32" }
+        ],
+        "internalType": "struct MemberRegistry.Member[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lastUpdate",
+    "outputs": [{ "internalType": "uint32", "name": "", "type": "uint32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "memberIdxs",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "members",
+    "outputs": [
+      { "internalType": "address", "name": "account", "type": "address" },
+      { "internalType": "uint32", "name": "secondsActive", "type": "uint32" },
+      {
+        "internalType": "uint32",
+        "name": "activityMultiplier",
+        "type": "uint32"
+      },
+      { "internalType": "uint32", "name": "startDate", "type": "uint32" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_member", "type": "address" },
+      {
+        "internalType": "uint32",
+        "name": "_activityMultiplier",
+        "type": "uint32"
+      },
+      { "internalType": "uint32", "name": "_startDate", "type": "uint32" }
+    ],
+    "name": "setNewMember",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "split",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "splitsMain",
+    "outputs": [
+      { "internalType": "contract ISPLITS", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_split", "type": "address" },
+      { "internalType": "address", "name": "_newController", "type": "address" }
+    ],
+    "name": "transferControl",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_sortedList",
+        "type": "address[]"
+      }
+    ],
+    "name": "triggerCalcAndSplits",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_member", "type": "address" },
+      {
+        "internalType": "uint32",
+        "name": "_activityMultiplier",
+        "type": "uint32"
+      }
+    ],
+    "name": "updateMember",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]

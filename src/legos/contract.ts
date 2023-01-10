@@ -56,8 +56,6 @@ export const CONTRACT: Record<string, ContractLego> = {
     contractName: 'MEMBER_REGISTRY',
     // @ts-ignore
     abi: MEMBER_REGISTRY,
-    targetAddress: {
-      '0x64': '0x3962dc25390BC602B7376AD1a39b3Cbc76D6581F',
-    },
+    targetAddress: '0x664a32F97569b7EA0a1DdC118e2D50EA6507E289'
   },
 };
