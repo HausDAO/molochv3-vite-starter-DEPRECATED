@@ -7,6 +7,13 @@ import { nowInSeconds } from "@daohaus/utils";
 import MemberRegistryAbi from "../abis/memberRegistry.json";
 import { useDebugValue } from "react";
 
+interface Member {
+  account: string;
+  activityMultiplier: number; 
+  secondsActive: number; 
+  startDate: number; 
+}
+
 const fetchMembers = async ({
   registryAddress,
   userAddress,
@@ -27,11 +34,10 @@ const fetchMembers = async ({
   console.log("MemberRegContract", MemberRegistryContract);
 
   try {
-    const members = await MemberRegistryContract.getMembers();
-    console.log("members", members);
+    const members: Member[] = await MemberRegistryContract.getMembers();
 
     return {
-      members: members.toString() as string,
+      members: members,
     };
   } catch (error: any) {
     console.error(error);

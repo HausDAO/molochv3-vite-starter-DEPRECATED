@@ -28,7 +28,7 @@ export const Home = () => {
     userAddress: address,
     chainId: "0x5",
     rpcs: HAUS_RPC,
-  });
+  });  
 
   const isConnectedToDao =
     chainId === daochain
@@ -55,16 +55,7 @@ export const Home = () => {
           onSuccess={() => {
             alert("yay trigger");
           }}
-          memberList={[
-            "0xCED608Aa29bB92185D9b6340Adcbfa263DAe075b",
-            "0x4C0a466DF0628FE8699051b3Ac6506653191cc21",
-            "0xBaf6e57A3940898fd21076b139D4aB231dCbBc5f",
-            "0x0EaBFFD8cE94ab2387fC44Ba32642aF0c58Af433",
-            "0x08913515803c69EE3c2B8BdFF49Cf53Baa1694D6",
-            "0x06535A967d958dEa135f6B50056362947AE5754b",
-            "0xb4C3A698874B625DF289E97f718206701c1F4c0f",
-            "0x60959Ed8307EE2b0d04306f6b319AEeE8864f1Ee",
-          ]}
+          memberList={data?.members}
         />
 
         <ParMd>-----------------------</ParMd>

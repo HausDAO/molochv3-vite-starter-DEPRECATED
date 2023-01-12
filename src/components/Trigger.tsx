@@ -7,16 +7,13 @@ import { Spinner, useToast } from "@daohaus/ui";
 import { ACTION_TX } from "../legos/tx";
 import { GatedButton } from "./GatedButton";
 
-export const Trigger = (
-  {
-    onSuccess,
-    memberList
-  }: {
-    onSuccess: () => void;
-    memberList: any;
-  },
-  
-) => {
+export const Trigger = ({
+  onSuccess,
+  memberList,
+}: {
+  onSuccess: () => void;
+  memberList: any;
+}) => {
   const daochain = "0x5";
   const { fireTransaction } = useTxBuilder();
   const { chainId, address } = useDHConnect();
@@ -24,14 +21,15 @@ export const Trigger = (
   const [isLoading, setIsLoading] = React.useState(false);
 
   const handleTrigger = () => {
-    
-    memberList.sort((a: string, b: string) => {
-      return parseInt(a.slice(2), 16) - parseInt(b.slice(2), 16);
-    })
     console.log("memberList", memberList);
+    const sortedMemberList = memberList
+      .map((member: any) => member.account)
+      .sort((a: string, b: string) => {
+        return parseInt(a.slice(2), 16) - parseInt(b.slice(2), 16);
+      });
     setIsLoading(true);
     fireTransaction({
-      tx: { ...ACTION_TX.TRIGGER, staticArgs: [memberList] } as TXLego,
+      tx: { ...ACTION_TX.TRIGGER, staticArgs: [sortedMemberList] } as TXLego,
       lifeCycleFns: {
         onTxError: (error) => {
           const errMsg = handleErrorMessage({
