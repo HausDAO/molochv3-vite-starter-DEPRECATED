@@ -1,0 +1,11 @@
+uses: web3-storage/add-to-web3@v2
+id: web3
+with:
+  web3_token: ${{ secrets.WEB3_STORAGE_TOKEN }}
+  path_to_add: 'dist'
+
+# "bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am"
+- run: echo ${{ steps.web3.outputs.cid }}
+
+# "https://dweb.link/ipfs/bafkreicysg23kiwv34eg2d7qweipxwosdo2py4ldv42nbauguluen5v6am"
+- run: echo ${{ steps.web3.outputs.url }}
